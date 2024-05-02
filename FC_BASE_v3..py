@@ -116,7 +116,7 @@ def get_expenses(var_fixed):
     for item in add_dollars:
         expense_frame[item] = expense_frame[item].apply(currency)
 
-    # expense_frame = expense_frame.set_index('Item')
+    expense_frame = expense_frame.set_index('Item')
     return [expense_frame, sub_total]
 
 # prints expense frames
@@ -149,6 +149,7 @@ if have_fixed == "yes":
     fixed_sub = fixed_expense[1]
 else:
     fixed_sub = 0
+    fixed_frame = ""
 
 # Find Total Costs
 
