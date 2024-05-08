@@ -85,3 +85,9 @@ def profit_goal(total_costs):
             goal = (amount / 100) * total_costs
             return goal
 
+
+# testing area
+all_cost = 100
+profit_target = profit_goal(all_cost)
+total_sales = all_cost + profit_target
+print(profit_target)
