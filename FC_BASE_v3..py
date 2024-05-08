@@ -1,5 +1,6 @@
 # import libraries
 import pandas
+import math
 
 
 # *** Functions go here ****
@@ -218,7 +219,18 @@ if have_fixed == "yes":
 else:
     fixed_sub = 0
 
-# Find Total Costs
+# work out total costs and profit target
+all_costs = variable_subtotal + fixed_sub
+profit_target = profit_goal(all_costs)
+
+# Calculates total sales needed to reach goal
+sales_needed = all_costs + profit_target
+
+# Ask user for rounding
+round_to = num_check("Round to nearest...? $",
+                     "Cant be 0", int)
+
+# Find total costs
 all_cost = variable_subtotal + fixed_sub
 
 # Ask user for profit goal
@@ -227,10 +239,12 @@ total_sales_needed = all_cost + profit_target
 
 # calculate recommended price
 selling_price = total_sales_needed / how_many
+print("Selling price (unrounded): "
+      "${:.2f}".format(selling_price))
+
+recommended_price = round_to(selling_price, round_to)
 
 # write data to file
-
-# *** Printing Area ****
 
 print()
 print("**** Fund Raising {} *****".format(product_name))
